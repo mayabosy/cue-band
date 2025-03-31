@@ -1,0 +1,719 @@
+/**
+ * 
+ * Styles 
+ *
+ * @author Maja Bosy
+ * Student ID: W20037161
+ * 
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+
+/* Navbar */
+.navbar {
+  background-color: #004578;
+  padding: 30px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* Footer */
+.navbar-footer{
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.logo-image {
+  height: 80px;
+}
+
+.navLink {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.custom-bg-color {
+  background-color: #083358;
+}
+
+.custom-bg-color2 {
+  background-color: #2c465a;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  background-color: white;
+  width: 25px;
+  height: 3px;
+  display: block;
+  margin: 5px 0;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Menu Items */
+.navMenu {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  z-index: 1000; 
+}
+
+.navLink {
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+  font-size: 22px;
+  position: relative;
+}
+
+
+.navLink.active::after {
+  background-color: rgb(255, 205, 6); /* Change this color as per your preference */
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 4px;
+  background-color: transparent;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.navLink:hover,
+.navLink:focus {
+  color: rgb(250 204 21);
+}
+
+.navLink:hover::after,
+.navLink:focus::after {
+  background-color: rgb(255, 205, 6);
+}
+
+
+.font-change-button{
+  background-color: #001F3F;
+}
+
+.font-change-button:hover{
+  background-color: #001F3F;
+}
+
+
+/* Media Queries */
+@media screen and (max-width: 780px) {
+  .hamburger {
+    display: block;
+  }
+  
+
+  .navMenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    background-color: #13588d;
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+
+  }
+  .navMenu.active {
+    display: flex;
+  }
+}
+
+.invert-colors {
+  filter: invert(1);
+
+}
+
+/* Accessibility Window */
+.accessibility-options-window {
+  position: fixed;
+  bottom: 110px;
+  right: 20px;
+  padding: 1.5rem;
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  max-width: 400px;
+}
+
+@media (max-width: 768px) {
+  .accessibility-options-window {
+    bottom: 100px !important; 
+  }
+}
+
+.fixed-button {
+  position: fixed;
+  z-index: 9999; 
+}
+
+.accessibility-window {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 20px;
+  z-index: 9999; 
+  pointer-events: auto; 
+}
+
+.bg-sky-950 {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 780px) {
+  .accessibility-options-window {
+    bottom: 20px; 
+    right: 20px; 
+    left: 20px; 
+    width: auto;
+    max-width: calc(100% - 40px);
+    padding: 1rem; 
+  }
+
+  .close-button {
+    top: 0;
+    right: 0;
+    left: auto;
+    margin: 0; 
+  }
+
+  .accessibility-options-window button {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.5rem; 
+  }
+
+  .accessibility-options-window button:last-child {
+    margin-bottom: 0; 
+  }
+}
+
+/* Accessibility Button */
+
+.accessibility-button {
+  position: fixed;
+  padding: 1rem;
+  color: #1a202c;
+  background-color: #FFD717;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.accessibility-button:hover {
+  transform: scale(1.1); 
+}
+
+@media (max-width: 768px) {
+  .accessibility-button {
+    padding: 0.75rem;
+    bottom: 30px;
+    right: 16px; 
+  }
+}
+
+/* Accessibility Font Buttons */
+
+.btn {
+  padding: 8px 16px;
+  margin: 4px;
+  border: 1px solid #ccc;
+  background-color: #f8f8f8;
+}
+
+.btn-selected {
+  background-color: #007BFF;
+  color: white;
+  border-color: #0056b3;
+}
+
+
+/* Modal */
+
+.modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6); 
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+
+.day {
+  background-color: rgb(240, 16, 16);
+  height: 30px;
+  width: 30px;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.colored-#f44336 {
+  background-color: #f44336;
+  height: 30px;
+  width: 30px;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.colored-orange {
+  background-color: orange;
+  height: 30px;
+  width: 30px;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.colored-#4CAF50 {
+  background-color: #4CAF50;
+  height: 30px;
+  width: 30px;
+  margin: auto;
+  border-radius: 5px;
+}
+
+/* Custom notification style for success */
+.toast-success {
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: auto !important;
+  max-width: 300px !important;
+  padding: 15px !important;
+  margin-top: 20px !important;
+  border-radius: 8px !important;
+  background-color: #f0f0f0 !important; 
+  color: #333333 !important;
+  font-size: 18px !important;
+  font-weight: bold !important;
+  text-align: center !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important; 
+}
+
+/* Custom notification style for error */
+
+.toast-error {
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: auto !important;
+  max-width: 300px !important;
+  padding: 15px !important;
+  border-radius: 8px !important;
+  background-color: #f0f0f0 !important;
+  color: #333333 !important;
+  font-size: 16px !important;
+  font-weight: bold !important;
+  text-align: center !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important; 
+  border-left: 4px solid #e53935 !important; 
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.content-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.close-add-note-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 40px;
+  color: #e53935;
+}
+
+
+close-add-note-button:hover {
+  color: #b42a27;
+}
+
+.overlay2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.close-heatmap-button {
+  position: absolute;
+  top: 19%; 
+  right: 11%; 
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 40px; 
+  color: #e53935;
+  z-index: 1100;
+}
+
+.close-heatmap-button:hover {
+  color: #b42a27;
+}
+
+/* HeatmapCalendar */
+
+.heatmap-calendar-container {
+  width: 80%; 
+  height: 65%; 
+  max-width: 800px; 
+  max-height: 800px; 
+  margin: auto; 
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 780px) {
+  .heatmap-calendar-container {
+    max-height: 350px;
+  }
+}
+
+.react-calendar-heatmap rect {
+  stroke: none;
+}
+
+.react-calendar-heatmap .color-empty {
+  fill: #e6e6e6 !important;
+}
+
+.react-calendar-heatmap .color-strength-1 {
+  fill: #a9f1ba; /* Soft blue for no symptom */
+}
+
+.react-calendar-heatmap .color-strength-2 {
+  fill: #d3efff; /* Green for mild */
+}
+
+.react-calendar-heatmap .color-strength-3 {
+  fill: #ffe772; /* Light yellow for moderate */
+}
+
+.react-calendar-heatmap .color-strength-4 {
+  fill: #ee7474; /* Soft red for severe */
+}
+
+.react-calendar-heatmap text {
+  fill: #1e293b !important; 
+  font-weight: bold;
+}
+
+
+/* Diary Entries */
+
+.underscore {
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #4a5568;
+}
+
+.custom-input {
+  background-color: white;
+  color: black;
+}
+
+.navbar-sign-in{
+  background-color: #001F3F;
+}
+
+/* Notes */
+.note-container {
+  padding-top: 100px;
+  padding-bottom: 20px;
+  padding-left: 40px;
+  padding-right: 20px;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 5%;
+}
+
+.note-button {
+  background-color: #083358;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  transition: background-color 0.3s, transform 0.3s;
+  margin-bottom: 3px;
+}
+
+.note-button:hover {
+  background-color: #001F3F;
+  transform: scale(1.05);
+}
+
+.heatmap-button {
+  background-color: #083358 ;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  transition: background-color 0.3s, transform 0.3s;
+  position: relative;
+}
+
+.heatmap-button:hover {
+  background-color: #001F3F;
+  transform: scale(1.05);
+}
+
+.calendar-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.heatmap-text {
+  margin-left: 20px;
+}
+
+.note-container {
+  padding: 20px;
+}
+
+.note-title {
+  color: #808080;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.note-description {
+  color: #808080;
+}
+
+
+/* Modal Update Note */
+.overlay-update-note {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  z-index: 1000; 
+}
+
+.modal-update-note {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.textarea-update-note {
+  width: 100%;
+  height: 150px; 
+  resize: none; 
+  margin-bottom: 20px; 
+  border: 1px solid #ccc; 
+  padding: 10px; 
+  border-radius: 5px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between; 
+}
+
+.save-update-note-button, .cancel-update-note-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s; 
+}
+
+.cancel-update-note-button {
+  background-color: #f44336; 
+}
+
+.save-update-note-button:hover, .cancel-update-note-button:hover {
+  opacity: 0.8; 
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.modal-update-note h2 {
+  font-size: 20px;
+  font-weight: bolder;
+  color: #333;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+
+.edit-note-button {
+  background-color: #c7dcf8;
+  color: #333;
+  font-weight: normal;
+  padding: 2px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s, transform 0.3s;
+  position: relative;
+  border: none;
+  cursor: pointer;   
+  font-weight: bold;
+}
+
+.edit-note-button:hover {
+  background-color: #b2cef2;
+  transform: scale(1.05);    
+}
+
+.container-edit-note-button {
+  display: flex;
+  justify-content: flex-end; 
+}
+
+.band-connect-button{
+  background-color: #FFD717;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.band-connect-button:hover{
+  background-color: #f4cd0b;
+  transform: scale(1.05);
+}
+
+.register-link{
+  color: #0D63A5;
+}
+
+.render-button{
+  background-color:#FFD717 ;
+}
+
+.register-button{
+background-color: #eef4ed;
+}
+
+.register-button:hover{
+  background-color: #8da9c4;
+  opacity: 0.8; 
+}
+
+
+.sign-in-button{
+  background-color: #eef4ed;
+}
+
+.sign-in-button:hover{
+background-color: #8da9c4;
+opacity: 0.8; 
+}
+
+.sign-out-button{
+  background-color: #fcba04;
+  color: #001F3F;
+}
+
+.sign-out-button:hover{
+  background-color: #e3a600;
+  color: #001F3F;
+  opacity: 0.8; 
+}
+
+.schedule-step-buttons{
+  background-color: #083358;
+
+}
+
+.schedule-step-buttons:hover {
+  background-color: #001F3F;
+}
+
+
+@media (max-width: 768px) {
+  .week-days-container, .part-of-day-container {
+      flex-direction: column;
+  }
+}
